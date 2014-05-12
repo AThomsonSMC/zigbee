@@ -63,7 +63,7 @@ class Nodes(models.Model):
 
 
 class Events(models.Model):
-    event_id = models.AutoField(unique=True)
+    event_id = models.AutoField(unique=True, primary_key=True)
     user = models.ForeignKey(Users)
     timestamp = models.DateTimeField(default = datetime.datetime.now())
     node = models.ForeignKey(Nodes)
