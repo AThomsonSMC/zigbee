@@ -8,8 +8,8 @@ class EventInline(admin.TabularInline):
 class UserAdmin(admin.ModelAdmin):
     fields = ['badge_id', 'name_first','name_last']
     inlines = [EventInline]
-    list_filter = ['badge_id','name']
-    search_fields = ['badge_id','name']
+    list_filter = ['badge_id','name_first','name_last']
+    search_fields = ['badge_id','name_first','name_last']
 
 class NodeAdmin(admin.ModelAdmin):
     fields = ['node_id', 'name']
