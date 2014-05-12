@@ -6,7 +6,7 @@ class EventInline(admin.TabularInline):
     extra = 1
 
 class UserAdmin(admin.ModelAdmin):
-    fields = ['badge_id', 'name']
+    fields = ['badge_id', 'name_first','name_last']
     inlines = [EventInline]
     list_filter = ['badge_id','name']
     search_fields = ['badge_id','name']
