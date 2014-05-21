@@ -1,0 +1,24 @@
+__author__ = 'Adam Thomson'
+from django.conf.urls import patterns, url
+from data import views
+
+urlpatterns = patterns('',
+    # /index/
+    url(r'^$', views.index, name='index'),
+    # /users/
+    url(r'^users/$', views.users, name = 'users'),
+    # /users/12T/
+    url(r'^users/(?P<badge_id>\w+)/$', views.user_details, name = 'user_details'),
+    # /nodes/
+    url(r'^nodes/$', views.nodes, name = 'nodes'),
+    # /nodes/27/
+    url(r'^nodes/(?P<node_id>\d+)/$', views.node_details, name = 'node_details'),
+    # /events/
+    url(r'^events/$', views.events, name = 'events'),
+    # /events/123
+    url(r'^events/(?P<event_id>\d+)/$', views.event_details, name = 'event_details'),
+    # /networks/
+    url(r'^networks/$', views.networks, name = 'networks'),
+    # /networks/2G7
+    url(r'^networks/(?P<network_id>\d+)/$', views.network_details, name = 'network_details'),
+)

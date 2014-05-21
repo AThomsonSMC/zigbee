@@ -1,0 +1,7 @@
+<h1>Latest events.</h1>
+
+<ul>
+{% for user in latest_list %}
+    <li><a href="{% url 'data:user_details' user.badge_id %}">{{ user.name_last }}", "{{ user.name_first }}</a></li>
+{% endfor %}
+</ul>
