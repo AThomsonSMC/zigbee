@@ -5,16 +5,20 @@ from data import views
 urlpatterns = patterns('',
     # /index/
     url(r'^$', views.index, name='index'),
-    # /doctors/
-    url(r'^users/$', views.doctors, name = 'users'),
-    # /doctors/123/
-    url(r'^users/(?P<badge_id>\w+)/$', views.doctor_details, name = 'user_details'),
-    # /stations/
-    url(r'^nodes/$', views.stations, name = 'nodes'),
-    # /stations/27/
-    url(r'^nodes/(?P<station_id>\d+)/$', views.station_details, name = 'node_details'),
-    # /washings/
-    url(r'^events/$', views.washings, name = 'events'),
-    # /washings/123
-    url(r'^events/(?P<wash_id>\d+)/$', views.washing_details, name = 'event_details')
+    # /users/
+    url(r'^users/$', views.users, name = 'users'),
+    # /users/12T/
+    url(r'^users/(?P<badge_id>\w+)/$', views.user_details, name = 'user_details'),
+    # /nodes/
+    url(r'^nodes/$', views.nodes, name = 'nodes'),
+    # /nodes/27/
+    url(r'^nodes/(?P<node_id>\d+)/$', views.node_details, name = 'node_details'),
+    # /events/
+    url(r'^events/$', views.events, name = 'events'),
+    # /events/123
+    url(r'^events/(?P<event_id>\d+)/$', views.event_details, name = 'event_details'),
+    # /networks/
+    url(r'^networks/$', views.networks, name = 'networks'),
+    # /networks/2G7
+    url(r'^networks/(?P<network_id>\d+)/$', views.network_details, name = 'network_details'),
 )

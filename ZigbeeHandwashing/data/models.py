@@ -23,7 +23,7 @@ class Users(models.Model):
     #is_in_compliance.short_description = 'Washed hands today?'
 
     def __str__(self):
-        return "Badge: %s, Name: %s" % (self.badge_id, self.name)
+        return "Badge: %s, Name: %s, %s" % (self.badge_id, self.name_last, self.name_first)
 
 
 class Networks(models.Model):
@@ -32,6 +32,8 @@ class Networks(models.Model):
     port = models.IntegerField(max_length = 4, default = 0)
     ip_add = models.CharField(max_length = 16)
     status = models.CharField(max_length = 50)
+    def __str__(self):
+        return "Network: %s, IP: %s" % (self.name, self.ip_add)
 
 
 class Nodes(models.Model):
@@ -40,12 +42,12 @@ class Nodes(models.Model):
     type = models.CharField(max_length = 200)
     soap_level = models.FloatField(default = 0.0)
     battery_level = models.FloatField(default = 0.0)
-    network = models.ForeignKey(Networks)
+    networks = models.ForeignKey(Networks)
     loc_x = models.FloatField(default = 0)
     loc_y = models.FloatField(default = 0)
     loc_z = models.FloatField(default = 0)
     def __str__(self):
-        return "ID: %s, Name: %s" % (self.station_id, self.name)
+        return "ID: %s, Name: %s" % (self.node_id, self.name)
     def battery_alert(self):
         if self.battery_level < BATTERY_WARNING:
             #send alert
@@ -70,4 +72,4 @@ class Events(models.Model):
     type = models.CharField(max_length = 200)
     data = models.TextField(max_length = 1000)
     def __str__(self):
-        return "Doctor: %s, Time: %s" % (self.doctor.name, self.timestamp)
+        return "User: %s, %s - Time: %s" % (self.user.name_last, self.user.name_first, self.timestamp)
